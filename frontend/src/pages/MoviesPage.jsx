@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getMovies, addMovie, updateMovie, deleteMovie } from "../services/movieService";
-import { getGenres } from "../services/genreService";
+import { getGenresForMovies } from "../services/genreService";
 import Select from "react-select";
 import { normalizeThumbnailUrl, normalizeVideoUrl } from "../utils/path";
 
@@ -128,7 +128,7 @@ const MoviesPage = () => {
 
   useEffect(() => {
     getMovies().then(res => setAllMovies(res.data));
-    getGenres().then(res => setGenres(res.data));
+    getGenresForMovies().then(res => setGenres(res.data));
   }, []);
 
   return (
@@ -415,7 +415,7 @@ const styles = {
     width: 60,
     height: 80,
     objectFit: "cover",
-    borderRadius: 6
+    borderRadius: 6,
   },
 
   descCell: {

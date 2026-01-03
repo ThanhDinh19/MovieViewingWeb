@@ -91,8 +91,6 @@ exports.createMovie = async (req, res) => {
 };
 
 
-
-
 exports.updateMovie = async (req, res) => {
   try {
     const { title, year, description } = req.body;

@@ -19,21 +19,14 @@ const UserPage = () => {
               <th style={styles.th}>Tên</th>
               <th style={styles.th}>Email</th>
               <th style={styles.th}>Vai trò</th>
-              <th style={styles.th}>Phim yêu thích</th>
             </tr>
           </thead>
-
           <tbody>
             {users.map(item => (
               <tr key={item._id}>
                 <td style={styles.td}>{item.name}</td>
                 <td style={styles.td}>{item.email}</td>
                 <td style={styles.tdCenter}>{item.role}</td>
-                <td style={styles.td}>
-                  {Array.isArray(item.favorites)
-                    ? item.favorites.join(", ")
-                    : item.favorites}
-                </td>
               </tr>
             ))}
           </tbody>
@@ -85,7 +78,7 @@ const styles = {
   tdCenter: {
     padding: "10px 10px",
     fontSize: 14,
-    textAlign: "center",
+    textAlign: "left",
     verticalAlign: "middle",
     borderBottom: "1px solid #eee"
   }

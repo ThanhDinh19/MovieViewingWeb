@@ -5,6 +5,7 @@ const auth = require("../middleware/auth.middleware");
 const upload = require("../middleware/upload");
 
 router.get("/", movie.getAllMovies);
+
 router.get("/search", movie.findMovies);
 router.get("/:id", movie.getMovieById);
 
