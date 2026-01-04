@@ -4,12 +4,19 @@ import Dashboard from "./pages/Dashboard";
 import MoviesPage from "./pages/MoviesPage";
 import UserPage from "./pages/UsersPage";
 import GenresPage from "./pages/GenresPage";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
     <Routes>
+
+    {/* Trang khach */}
+      <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<LoginPage />} />
+
       <Route
-        path="/"
+        path="/admin"
         element={
           <AdminLayout>
             <Dashboard />
