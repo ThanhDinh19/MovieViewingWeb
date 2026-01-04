@@ -1,0 +1,119 @@
+.home-page {
+  background: #141414;
+  color: #fff;
+  min-height: 100vh;
+}
+
+/* HERO */
+.hero {
+  height: 70vh;
+  background: url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4")
+    center / cover no-repeat;
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+/* SEARCH */
+.hero-search {
+  display: flex;
+  gap: 10px;
+}
+
+.hero-search input {
+  padding: 10px 14px;
+  width: 260px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+}
+
+.hero-search button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #e50914;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* MOVIE SECTION */
+.movie-section {
+  padding: 40px 60px;
+}
+
+.movie-section h2 {
+  margin-bottom: 20px;
+}
+
+/* MOVIE LIST */
+.movie-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+  padding: 20px 0;
+}
+
+/* CARD */
+.movie-card {
+  background: #181818;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.movie-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* IMAGE */
+.movie-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+/* CONTENT */
+.movie-card h3 {
+  font-size: 16px;
+  margin: 12px 12px 6px;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.movie-card p {
+  font-size: 13px;
+  margin: 0 12px 12px;
+  color: #aaa;
+  line-height: 1.4;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* giới hạn 2 dòng */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
