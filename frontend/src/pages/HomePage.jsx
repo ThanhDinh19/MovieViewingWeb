@@ -21,19 +21,6 @@ const HomePage = () => {
     return (
         <div className="home-page">
 
-            {/* HERO */}
-            <section className="hero">
-                <div className="hero-overlay">
-                    <h1>Welcome to Movie Viewing</h1>
-                    <p>Xem phim chất lượng cao, cập nhật liên tục</p>
-
-                    <div className="hero-search">
-                        <input type="text" placeholder="Tìm kiếm phim..." />
-                        <button>Tìm kiếm</button>
-                    </div>
-                </div>
-            </section>
-
             {/* MOVIE SECTION */}
             <section className="movie-section">
                 <h2>Phim nổi bật</h2>

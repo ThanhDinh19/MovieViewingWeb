@@ -9,3 +9,7 @@ export const getUsers = () => {
 export const login = (email, password) =>{
     return axios.post(`${API_URL}/login`, { email, password, })
 }
+
+export const googleLogin = (googleIdToken) => {
+    return axios.post(`${API_URL}/google`, { tokenId: googleIdToken })
+}   

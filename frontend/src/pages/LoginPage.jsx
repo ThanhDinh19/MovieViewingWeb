@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { login } from "../services/userService";
+import { login, googleLogin } from "../services/userService";
 import "./LoginPage.css";
+import { GoogleLogin } from "@react-oauth/google";
 
 const LoginPage = () => {
 
@@ -43,8 +44,13 @@ const LoginPage = () => {
 
         try {
             const res = await login(email, password);
+            const user = res.data.user;
+            if (user.role === 'user') {
+                navigate("/");
+            } else {
+                navigate("/admin");
+            }
             localStorage.setItem("token", res.data.token);
-            navigate('/admin');
         }
         catch (err) {
             const message = err.response?.data?.message || "Đã xảy ra lỗi";
@@ -78,6 +84,20 @@ const LoginPage = () => {
                 <button onClick={handleSubmit} className="login-button">
                     Đăng nhập
                 </button>
+
+                <div className="login-divider">
+                    <span>Hoặc đăng nhập bằng</span>
+                </div>
+
+                {/* Google login */}
+                <GoogleLogin
+                    onSuccess={async (credentialResponse) => {
+                            const res =await googleLogin(credentialResponse.credential);
+                            console.log(res.data.email);
+                        }
+                    }
+
+                />
             </div>
         </div>
 
@@ -85,3 +105,8 @@ const LoginPage = () => {
 }
 
 export default LoginPage;
+
+
+
+
+

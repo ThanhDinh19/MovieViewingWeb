@@ -3,61 +3,121 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #000000, #211832  );
+  background: linear-gradient(135deg, #000000, #211832);
 }
 
 .login-card {
   width: 360px;
-  background: #fff   ;
-  padding: 30px;
+  background: #111;
+  padding: 32px;
   border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
 .login-title {
   text-align: center;
+  color: #fff;
   margin-bottom: 24px;
-  color: #333;
 }
 
 .login-input {
-  width: 92%;
-  padding: 12px 14px;
+  width: 93%;
+  padding: 12px;
   margin-bottom: 10px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 14px;
+  border-radius: 6px;
+  border: none;
   outline: none;
-  transition: border-color 0.3s;
-}
-
-.login-input:focus {
-  border-color: #667eea;
-}
-
-.error-text {
-  color: red;
-  font-size: 13px;
-  margin-bottom: 10px;
 }
 
 .login-button {
   width: 100%;
   padding: 12px;
-  background: #667eea;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
+  background: #e50914;
+  color: white;
+  font-weight: bold;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.1s;
 }
 
 .login-button:hover {
-  background: #5a67d8;
+  background: #f6121d;
 }
 
-.login-button:active {
-  transform: scale(0.98);
+.error-text {
+  color: #ff4d4f;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #444;
+}
+
+.divider span {
+  margin: 0 10px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.login-divider {
+  position: relative;
+  text-align: center;
+  margin: 28px 0 20px;
+}
+
+.login-divider::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: #404040;
+}
+
+.login-divider span {
+  position: relative;
+  display: inline-block;
+  background: #2a2a2a;
+  padding: 0 16px;
+  color: #999;
+  font-size: 14px;
+}
+
+/* Google button */
+.google-button {
+  width: 100%;
+  padding: 10px;
+  background: white;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top:40px;
+}
+
+.google-button img {
+  width: 18px;
+  height: 18px;
+}
+
+.google-button:hover {
+  background: #f5f5f5;
 }

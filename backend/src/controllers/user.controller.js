@@ -53,3 +53,21 @@ exports.getProfile = async (req, res) => {
   const user = await User.findById(req.user.id);
   res.json(user);
 };
+
+
+exports.googleLogin = async (req, res) => {
+  const { googleIdToken } = req.body;
+
+  if(googleIdToken){
+    const {OAuth2Client} = require("google-auth-library");
+    const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
+    const ticket = await client.verifyIdToken({
+      idToken: googleIdToken,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+    const payload = ticket.getPayload();
+    const email = payload.email;
+    res.json({ email: email });
+  }
+  
+};
