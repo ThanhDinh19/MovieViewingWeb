@@ -3,12 +3,15 @@ import { useNavigate } from "react-router-dom";
 import { login, googleLogin } from "../services/userService";
 import "./LoginPage.css";
 import { GoogleLogin } from "@react-oauth/google";
+import {useAuth} from "../context/AuthContext";
+import axios from "axios";
 
 const LoginPage = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState({});
+    const {setUser} = useAuth();
 
     const navigate = useNavigate();
 
@@ -92,11 +95,14 @@ const LoginPage = () => {
                 {/* Google login */}
                 <GoogleLogin
                     onSuccess={async (credentialResponse) => {
-                            const res =await googleLogin(credentialResponse.credential);
-                            console.log(res.data.email);
-                        }
+                        const res = await googleLogin(credentialResponse.credential);
+                        localStorage.setItem("token", res.data.token);
+                        console.log("Name:", res.data.user.name)
+                        setUser(res.data.user);
+                        axios.defaults.headers.common.Authorization = `Bearer ${res.data.token}`;
+                        navigate("/");                         
                     }
-
+                    }
                 />
             </div>
         </div>

@@ -110,3 +110,7 @@
 .navbar-menu div:hover::after {
   width: 100%;
 }
+
+.navbar-right span{
+  color: #fff;
+}

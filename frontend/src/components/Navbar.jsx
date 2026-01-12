@@ -1,7 +1,10 @@
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
+import {useAuth} from "../context/AuthContext";
 
 const Navbar = () => {
+    const {user} = useAuth();
+
     return (
         <div>
             <nav className="navbar">
@@ -18,7 +21,7 @@ const Navbar = () => {
                 </div>
 
                 <div className="navbar-right">
-                    <a href="/login" className="login-link">Đăng nhập</a>
+                    {user ? (<><span>Xin chào, {user.name}</span></>) : (<a href="/login" className="login-link">Đăng nhập</a>)}
                 </div>
             </nav>
             <nav className="navbar-menu">

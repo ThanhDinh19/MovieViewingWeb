@@ -11,5 +11,5 @@ export const login = (email, password) =>{
 }
 
 export const googleLogin = (googleIdToken) => {
-    return axios.post(`${API_URL}/google`, { tokenId: googleIdToken })
+    return axios.post(`${API_URL}/google`, { googleIdToken })
 }   

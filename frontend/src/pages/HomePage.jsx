@@ -5,6 +5,7 @@ import {getMovies} from "../api/moviesAPI";
 const HomePage = () => {
     const [movies, setMovies] = useState([]);
 
+
     useEffect(() => {
         fetchMovies();
     }, []);
